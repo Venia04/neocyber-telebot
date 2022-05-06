@@ -9,12 +9,12 @@ button2 = 'Button 2'
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
-	bot.send_message(message.chat.id,f"*Привет, {message.from_user.first_name}!*\
+	bot.send_message(message.chat.id, f'*Привет, {message.from_user.first_name}!*\
 	\nЭто бот для записи в компьютерном клубе NeoCyber!\nДля записи просто\
 	нажми кнопку *Записаться* внизу⬇\nА для отмены уже существующей записи позвони\
-	админу клуба по номеру +375-29-123-45-67", parse_mode="Markdown")
-	markup=types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
-	item1=types.KeyboardButton(make_appointment)
+	админу клуба по номеру +375-29-123-45-67', parse_mode="Markdown")
+	markup = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
+	item1 = types.KeyboardButton(make_appointment)
 	markup.add(item1)
 	bot.send_message(message.chat.id, 'Выберите вариант', reply_markup=markup)
 
