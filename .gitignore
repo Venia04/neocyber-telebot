@@ -4,3 +4,9 @@
 
 /.vs
 __pycache__/config.cpython-310.pyc
+/.idea/.gitignore
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/neocyber-telebot.iml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/vcs.xml
