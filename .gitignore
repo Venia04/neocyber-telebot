@@ -10,3 +10,5 @@ __pycache__/config.cpython-310.pyc
 /.idea/neocyber-telebot.iml
 /.idea/inspectionProfiles/profiles_settings.xml
 /.idea/vcs.xml
+
+config.py
