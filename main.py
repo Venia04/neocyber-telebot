@@ -18,7 +18,7 @@ def start_message(message):
 	нажми кнопку *Записаться* внизу⬇\nА для отмены уже существующей записи позвони\
 	админу клуба по номеру +375-29-123-45-67'
 
-	bot.send_message(message.chat.id, hello_message, reply_markup=user_markup, parse_mode='Markdown')
+	bot.reply_to(message, hello_message, reply_markup=user_markup, parse_mode='Markdown')
 
 
 @bot.message_handler(func=lambda mess: "Главное меню" == mess.text, content_types=['text'])
