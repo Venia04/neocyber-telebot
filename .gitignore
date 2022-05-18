@@ -4,6 +4,7 @@
 
 /.vs
 __pycache__/config.cpython-310.pyc
+/.idea/*
 /.idea/.gitignore
 /.idea/misc.xml
 /.idea/modules.xml
