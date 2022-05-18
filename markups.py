@@ -15,8 +15,8 @@ class Keyboard:
 		self.bot.send_message(message.from_user.id, hello_message, reply_markup=user_markup, parse_mode='Markdown')
 
 	def make_appointment(self, message):
-		user_markup = telebot.types.ReplyKeyboardMarkup(True, False)
+		user_markup = telebot.types.ReplyKeyboardMarkup(True, True)
 		user_markup.row('Компьютер')
 		user_markup.row('Playstation')
 		user_markup.row('VIP Компьютер')
-		self.bot.send_message(message.from_user.id, 'Выберите Пакет:')
+		self.bot.send_message(message.from_user.id, 'Выберите Пакет:', reply_markup=user_markup)
