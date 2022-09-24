@@ -1,4 +1,5 @@
 import telebot
+from telebot.util import quick_markup
 
 
 class Keyboard:
@@ -6,8 +7,9 @@ class Keyboard:
         self.bot = bot
 
     def main_menu(self, message):
-        user_markup = telebot.types.ReplyKeyboardMarkup(True, False)
-        user_markup.row('Записаться')
+        user_markup = quick_markup({
+            'Twitter': {'url': 'twitter.com'}
+        })
         hello_message = f'*Привет, {message.from_user.first_name}!*\
 \nЭто бот для записи в компьютерном клубе NeoCyber!\nДля записи просто \
 нажми кнопку *Записаться* внизу⬇\nА для отмены уже существующей записи позвони \
@@ -16,7 +18,7 @@ class Keyboard:
                               reply_markup=user_markup, parse_mode='Markdown')
 
     def make_appointment(self, message):
-        user_markup = telebot.types.ReplyKeyboardMarkup(True, True)
+        user_markup = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
         user_markup.row('Компьютер')
         user_markup.row('Playstation')
         user_markup.row('VIP Компьютер')
@@ -32,4 +34,3 @@ class Keyboard:
         kb.add(types.InlineKeyboardButton(text="для проверки."))
         self.bot.send_message(message.from_user.id, 'Добро пожаловать в Админ-панель!',
                               reply_markup=kb)
-
