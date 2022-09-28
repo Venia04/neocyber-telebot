@@ -11,13 +11,11 @@ from telebot import types
 # logger = telebot.logger
 # telebot.logger.setLevel(logging.DEBUG)
 ADMIN = config.ADMIN
-# путь к БД: рядом с папкой проекта папка neoDB
-DB_PATH = '../neoDB/appoint.db'
-conn = sqlite3.connect(DB_PATH, check_same_thread=False)
-cursor = conn.cursor()
+
 bot = telebot.TeleBot(config.TOKEN)
 keyboard = Keyboard(bot)
-
+# путь к БД: рядом с папкой проекта папка neoDB
+BotDB = BotDB('../neoDB/appoint.db')
 
 @bot.message_handler(commands=['start'])
 def start_message(message):

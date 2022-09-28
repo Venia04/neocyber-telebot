@@ -9,7 +9,7 @@ class BotDB:
         Args:
             db_file {string} -- путь к файлу БД
         """
-        self.conn = sqlite3.connect(db_file)
+        self.conn = sqlite3.connect(db_file, check_same_thread=False)
         self.cursor = self.conn.cursor()
 
     def close(self):
@@ -26,13 +26,12 @@ class BotDB:
             True/False (bool): ``True``, если переданный``user_id`` найден в БД
         """
         result = self.cursor.execute(
-            "SELECT id FROM users WHERE user_id = ?", (user_id))
+            "SELECT id FROM users WHERE user_id = ?", (user_id,))
         return bool(len(result.fetchall()))
 
     def get_user_id(self, user_id):
         result = self.cursor.execute(
-            "SELECT id FROM users WHERE user_id = ?", (user_id)
-        )
+            "SELECT id FROM users WHERE user_id = ?", (user_id,))
         return result.fetchone()[0]
 
     def add_user(self, user_id):
